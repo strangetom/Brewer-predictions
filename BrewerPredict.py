@@ -49,8 +49,9 @@ print "Next:     {:.4f} +/- {:.4f}".format(predicted_R6_1,predicted_R6_1_sd)
 print "Next +1: {:.4f} +/- {:.4f}".format(predicted_R6_2,predicted_R6_2_sd)
 
 with open('Predictions.txt', 'w') as f:
-    f.write('Next data point prediction =  {:.4f}+/- {:.4f}\n'.format(predicted_R6_1,predicted_R6_1_sd))
-    f.write('Next data point +1 prediction = {:.4f}'.format(predicted_R6_2,predicted_R6_2_sd))
-
+            f.write('Predicted value \t Error on predicted value\n')
+            f.write('{:.2f} \t {:.2f}\n'.format(predicted_R6_1,predicted_R6_1_sd))
+            f.write('{:.2f} \t {:.2f}'.format(predicted_R6_2,predicted_R6_2_sd))
+            
 raw_input("\nPress any key to exit.")
 
