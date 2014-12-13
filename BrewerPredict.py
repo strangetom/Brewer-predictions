@@ -64,13 +64,13 @@ while valid_name == False:
     try:
         #Load data
         data = np.genfromtxt(filename,delimiter=(5, 3, 3, 3, 6, 6, 6, 6, 6, 6, 8, 3, 3, 3, 3, 3, 3, 6),autostrip=True)
-        #Remove any rows containing NaN
+      	#Remove any rows containing NaN
         data = data[~np.isnan(data).any(1)]
         R6 = data[:,9]
         day = np.arange(1,R6.shape[0]+1,1)
         valid_name = True
     except IOError:
-        print "Error: File cannot be found in current directory."
+      	print "Error: File cannot be found in current directory."
 
 while True:
 
@@ -180,7 +180,7 @@ while True:
         axes[0].hold(True)
         axes[0].set_title('Next predicted and actual R6 Value') 
         axes[0].plot(day[11:],predicted_R6_1[:-1],'r',linewidth=0.6,label = 'Next Predicted Value')
-        axes[0].legend()
+        axes[0].legend(loc = 3)
 
         axes[1].plot(day,R6,'b',label='Actual Value') 
         axes[1].set_xlabel('Measurement Number')
@@ -188,14 +188,14 @@ while True:
         axes[1].hold(True)
         axes[1].set_title('Next +1 predicted and actual R6 Value') 
         axes[1].plot(day[12:],predicted_R6_2[:-2],'r',linewidth=0.6,label = 'Next +1 Predicted Value')
-        axes[1].legend()
+        axes[1].legend(loc = 3)
 
         savename = filename + '_fitplot.png'
         fig.savefig(savename)
         plt.close("all")
 
     elif decide == 0:
-        sys.exit()
+    	sys.exit()
      
     elif decide > 4:
         print "Invalid Input. Please enter either [0],[1],[2], [3] or [4] according to the above instructions"
